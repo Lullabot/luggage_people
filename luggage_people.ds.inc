@@ -25,6 +25,52 @@ function luggage_people_ds_field_settings_info() {
   );
   $export['node|people|full'] = $ds_fieldsetting;
 
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|people|teaser';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'people';
+  $ds_fieldsetting->view_mode = 'teaser';
+  $ds_fieldsetting->settings = array(
+    'author_name' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+  );
+  $export['node|people|teaser'] = $ds_fieldsetting;
+
+  return $export;
+}
+
+/**
+ * Implements hook_ds_custom_fields_info().
+ */
+function luggage_people_ds_custom_fields_info() {
+  $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'author_name';
+  $ds_field->label = 'Author name';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => '<?php
+$ewrapper = entity_metadata_wrapper(\'node\', $entity);
+$first_name = $ewrapper->field_people_first_name->value(array(\'sanitize\' => TRUE));
+$last_name = $ewrapper->field_people_last_name->value(array(\'sanitize\' => TRUE));
+return l($first_name . \' \' . $last_name, \'node/\' . $entity->nid);',
+      'format' => 'ds_code',
+    ),
+    'use_token' => 0,
+  );
+  $export['author_name'] = $ds_field;
+
   return $export;
 }
 
@@ -101,6 +147,38 @@ function luggage_people_ds_layout_settings_info() {
     'layout_link_custom' => '',
   );
   $export['node|people|full'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|people|teaser';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'people';
+  $ds_layout->view_mode = 'teaser';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'author_name',
+        1 => 'field_people_position',
+        2 => 'field_people_image',
+      ),
+    ),
+    'fields' => array(
+      'author_name' => 'ds_content',
+      'field_people_position' => 'ds_content',
+      'field_people_image' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['node|people|teaser'] = $ds_layout;
 
   return $export;
 }
