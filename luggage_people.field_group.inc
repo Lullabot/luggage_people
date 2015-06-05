@@ -21,7 +21,7 @@ function luggage_people_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Contact',
-    'weight' => '11',
+    'weight' => '22',
     'children' => array(
       0 => 'field_people_city',
       1 => 'field_people_email',

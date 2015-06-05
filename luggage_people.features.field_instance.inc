@@ -270,7 +270,7 @@ function luggage_people_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 23,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -415,7 +415,7 @@ function luggage_people_field_default_field_instances() {
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 19,
+        'weight' => 11,
       ),
       'search_index' => array(
         'label' => 'inline',
@@ -703,7 +703,7 @@ function luggage_people_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 27,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -971,7 +971,7 @@ function luggage_people_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 24,
+        'weight' => 26,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -1143,7 +1143,7 @@ function luggage_people_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 24,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -1817,7 +1817,7 @@ function luggage_people_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 25,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -1950,7 +1950,7 @@ function luggage_people_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 20,
+        'weight' => 12,
       ),
       'search_index' => array(
         'label' => 'inline',
